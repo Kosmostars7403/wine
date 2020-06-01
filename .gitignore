@@ -9,6 +9,8 @@ __pycache__/
 venv/
 config/
 .DS_Store
+wine3.xlsx
+index.html
 
 # C extensions
 *.so
@@ -17,7 +19,6 @@ config/
 ./*.txt
 
 #library-files
-instabot/
 
 # Distribution / packaging
 .Python
