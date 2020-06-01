@@ -4,7 +4,6 @@ import datetime
 import pandas
 import collections
 import argparse
-from pprint import pprint
 
 WINERY_CREATION_YEAR = 1920
 
@@ -23,7 +22,6 @@ if __name__ == '__main__':
     drinks_categorized = collections.defaultdict(list)
     for drink in drinks:
         drinks_categorized[drink['Категория']].append(drink)
-    pprint(drinks_categorized)
 
     env = Environment(
         loader=FileSystemLoader('.'),
