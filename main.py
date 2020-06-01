@@ -32,9 +32,7 @@ if __name__ == '__main__':
 
     rendered_page = template.render(
         winery_age = 'Уже {} лет с вами'.format(winery_age),
-        white_wines = drinks_categorized['Белые вина'],
-        red_wines = drinks_categorized['Красные вина'],
-        drinks = drinks_categorized['Напитки']
+        drinks = drinks_categorized
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
