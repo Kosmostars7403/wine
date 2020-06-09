@@ -16,12 +16,12 @@ if __name__ == '__main__':
     current_year = datetime.date.today().year
     winery_age = current_year - WINERY_CREATION_YEAR
 
-    wines_excel_data_df = pandas.read_excel(file_path)
+    wines_excel_data_df = pandas.read_excel(file_path).fillna(False)
     drinks = wines_excel_data_df.to_dict(orient = 'records')
 
-    drinks_categorized = collections.defaultdict(list)
+    grouped_by_categories_drinks = collections.defaultdict(list)
     for drink in drinks:
-        drinks_categorized[drink['Категория']].append(drink)
+        grouped_by_categories_drinks[drink['Категория']].append(drink)
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     rendered_page = template.render(
         winery_age = 'Уже {} лет с вами'.format(winery_age),
-        drinks = drinks_categorized
+        grouped_by_categories_drinks = grouped_by_categories_drinks
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
